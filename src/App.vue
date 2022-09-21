@@ -79,7 +79,7 @@
       </InputStyle>
     </form>
 
-    <Table :FormResult="FormResult" />
+    <Table :FormResult="FormResult" @RemoveItem="RemoveItem" />
   </div>
 </template>
 
@@ -152,6 +152,11 @@ export default {
       this.FormValues.SelectedDate = "";
       this.FormValues.Notes = "";
       this.FormValues.Gender = "";
+    },
+    RemoveItem(data) {
+      this.FormResult = this.FormResult.filter((item) => {
+        return data !== item;
+      });
     },
   },
 };

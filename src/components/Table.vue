@@ -11,13 +11,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for:="(data, index) in FormResult">
-        <th scope="row">{{ index + 1 }}</th>
+      <tr
+        v-for:="(data, index) in FormResult"
+        @click="popup(data.Notes)"
+        style="cursor: pointer"
+      >
+        <th scope="row">
+          {{ index + 1 }}
+        </th>
         <td>{{ data.FirstName }}</td>
         <td>{{ data.LastName }}</td>
         <td>{{ data.Adress }}</td>
         <td>{{ data.SelectedDate }}</td>
         <td>{{ data.Gender }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            @click="$emit('RemoveItem', data)"
+          >
+            Danger
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -26,6 +41,16 @@
 <script>
 export default {
   props: ["FormResult"],
+  methods: {
+    popup(item) {
+      alert(item);
+    },
+    // RemoveForm(form) {
+    //   this.FormResult = this.FormResult.filter((item) => {
+    //     return form !== item;
+    //   });
+    // },
+  },
 };
 </script>
 
