@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <label class="form-label">{{ label }}</label>
-    <input
-      type="text"
+  <div class="form-floating">
+    <textarea
       class="form-control"
+      placeholder="Leave Notes here"
+      style="height: 100px"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       v-bind="$attrs"
-    />
+    ></textarea>
+    <label>{{ label }}</label>
   </div>
 </template>
 

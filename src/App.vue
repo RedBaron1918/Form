@@ -1,48 +1,59 @@
 <template>
   <div id="#app">
     <form class="row g-4">
-      <NormalInput
-        v-model="FirstName"
-        type="text"
-        label="First name"
-        required
-      />
-      <NormalInput v-model="LastName" type="text" label="Last Name" required />
-      <BiggerInput
-        v-model="Adress"
-        type="text"
-        label="Adress"
-        required
-        maxlength="35"
-      />
-      <SmallInput v-model="SelectedDate" type="date" label="Select Date" />
-      <Select v-model="Gender" label="Select Gender" />
-      <InputStyle class="col-5">
-        <Test v-model="FirstName" type="text" label="First name" required />
+      <InputStyle class="col-md-5">
+        <NormalInput
+          v-model="FirstName"
+          type="text"
+          label="First name"
+          required
+        />
+      </InputStyle>
+      <InputStyle class="col-md-5">
+        <NormalInput
+          v-model="LastName"
+          type="text"
+          label="Last Name"
+          required
+        />
+      </InputStyle>
+
+      <InputStyle class="col-md-10">
+        <NormalInput
+          v-model="Adress"
+          type="text"
+          label="Adress"
+          required
+          maxlength="35"
+        />
+      </InputStyle>
+
+      <InputStyle class="col-md-3">
+        <NormalInput v-model="SelectedDate" type="date" label="Select Date" />
+      </InputStyle>
+      <InputStyle class="col-md-3">
+        <Select v-model="Gender" label="Select Gender" />
+      </InputStyle>
+
+      <InputStyle class="col-10">
+        <TextArea v-model="Notes" label="Notes..." />
       </InputStyle>
     </form>
   </div>
 </template>
 
 <script>
-import Form from "./components/Form.vue";
 import NormalInput from "./components/normalInput.vue";
-import BiggerInput from "./components/biggerInput.vue";
-import SmallInput from "./components/SmallInput.vue";
 import Select from "./components/Select.vue";
-import Test from "./components/Test.vue";
 import InputStyle from "./components/InputStyle.vue";
+import TextArea from "./components/TextArea.vue";
 export default {
   name: "App",
   components: {
-    Form,
     NormalInput,
-    BiggerInput,
-    SmallInput,
     Select,
-    Test,
     InputStyle,
-    Test,
+    TextArea,
   },
   data() {
     return {
@@ -51,6 +62,7 @@ export default {
       Adress: "",
       SelectedDate: "",
       Gender: "",
+      Notes: "",
     };
   },
 };
