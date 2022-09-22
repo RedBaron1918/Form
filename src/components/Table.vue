@@ -1,5 +1,5 @@
 <template>
-  <div class="table-responsive mt-2">
+  <div v-if="FormResult.length > 0" class="table-responsive mt-2">
     <table class="table align-middle">
       <thead class="table-dark">
         <tr>
@@ -13,7 +13,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for:="(data, index) in FormResult" style="cursor: pointer">
+        <tr
+          v-for="(data, index) in FormResult"
+          style="cursor: pointer"
+          :key="index"
+        >
           <th scope="row" @click="popup(data.Notes)">
             {{ index + 1 }}
           </th>
@@ -42,7 +46,11 @@ export default {
   props: ["FormResult"],
   methods: {
     popup(item) {
-      alert(item);
+      if (item) {
+        alert(item);
+      } else {
+        alert("Notes are Empty");
+      }
     },
     // RemoveForm(form) {
     //   this.FormResult = this.FormResult.filter((item) => {

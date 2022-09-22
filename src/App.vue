@@ -6,6 +6,7 @@
           v-model="FormValues.FirstName"
           type="text"
           label="First name"
+          placeholder="John..."
           :class="
             v$.FormValues.FirstName.$errors.length >= 1
               ? 'border border-danger'
@@ -25,6 +26,7 @@
           v-model="FormValues.LastName"
           type="text"
           label="Last Name"
+          placeholder="Doe..."
           :class="
             v$.FormValues.LastName.$errors.length >= 1
               ? 'border border-danger'
@@ -45,6 +47,7 @@
           v-model="FormValues.Adress"
           type="text"
           label="Adress"
+          placeholder="123 Main Street..."
           :class="
             v$.FormValues.Adress.$errors.length >= 1
               ? 'border border-danger'
