@@ -125,6 +125,19 @@ export default {
       },
     };
   },
+  mounted() {
+    if (localStorage.FormResult) {
+      this.FormResult = JSON.parse(localStorage.FormResult);
+    }
+  },
+  watch: {
+    FormResult: {
+      handler(newResults) {
+        localStorage.FormResult = JSON.stringify(newResults);
+      },
+      deep: true,
+    },
+  },
 
   methods: {
     async SubmitForm() {
